@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "postinstall": "yarn && yarn build",
     "build": "rimraf dist && tsc -p tsconfig.json"
   },
   "peerDependencies": {
