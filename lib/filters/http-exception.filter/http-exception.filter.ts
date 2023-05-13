@@ -1,4 +1,3 @@
-import { throwError } from 'rxjs';
 import {
   Catch,
   HttpException,
@@ -13,9 +12,9 @@ export class HttpExceptionFilter implements ExceptionFilter<HttpException> {
 
     const error = res.message;
 
-    return throwError(() => ({
-      message: Array.isArray(error) ? error[0] : error,
-      status: 'error',
-    }));
+    return {
+      status: exception.getStatus(),
+      error: Array.isArray(error) ? error[0] : error,
+    };
   }
 }
