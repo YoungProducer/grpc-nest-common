@@ -23,7 +23,11 @@
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig.json",
     "prepublish:npm": "yarn build",
-    "publish:npm": "yarn publish --access public"
+    "publish:npm": "yarn publish --access public",
+    "proto:install": "yarn add git+https://github.com/YoungProducer/grpc-nest-proto.git",
+    "proto:cli": "protoc --plugin=node_modules/.bin/protoc-gen-ts_proto.cmd -I=./node_modules/grpc-nest-proto/proto --ts_proto_opt=nestJs=true --ts_proto_opt=fileSuffix=.pb",
+    "proto:prepare": "rimraf lib/proto && mkdir lib\\proto",
+    "proto:event-broker": "yarn proto:prepare && yarn proto:cli --ts_proto_out=lib/proto node_modules/grpc-nest-proto/proto/event-broker.proto"
   },
   "peerDependencies": {
     "@nestjs/common": "^8.0.0 || ^9.0.0",
@@ -46,9 +50,11 @@
     "reflect-metadata": "^0.1.13",
     "rimraf": "^5.0.0",
     "rxjs": "^7.8.1",
+    "ts-proto": "^1.147.3",
     "typescript": "^5.0.4"
   },
   "dependencies": {
+    "grpc-nest-proto": "git+https://github.com/YoungProducer/grpc-nest-proto.git",
     "typeorm": "^0.3.16"
   }
 }
