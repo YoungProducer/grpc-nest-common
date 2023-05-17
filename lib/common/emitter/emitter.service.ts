@@ -5,7 +5,7 @@ import {
   EVENT_BROKER_SERVICE_NAME,
   EventBrokerServiceClient,
   ProduceEventResponse,
-} from 'proto/event-broker.pb';
+} from '../../proto/event-broker.pb';
 import { EmitterOptions } from './interfaces/emitter-options';
 import { EMITTER_OPTIONS_TOKEN } from './emitter.module-definition';
 

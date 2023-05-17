@@ -5,7 +5,7 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
 import {
   EVENT_BROKER_SERVICE_NAME,
   EVENT_BROKER_PACKAGE_NAME,
-} from 'proto/event-broker.pb';
+} from '../../proto/event-broker.pb';
 
 @Module({
   imports: [

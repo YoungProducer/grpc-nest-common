@@ -3,7 +3,7 @@ import { LISTENER_OPTIONS_TOKEN } from './listener.module-definition';
 import {
   EVENT_BROKER_SERVICE_NAME,
   EventBrokerServiceClient,
-} from 'proto/event-broker.pb';
+} from '../../proto/event-broker.pb';
 import { ClientGrpc } from '@nestjs/microservices';
 import { ListenerOptions } from './interface/listener-options';
 import { Observable, map } from 'rxjs';
